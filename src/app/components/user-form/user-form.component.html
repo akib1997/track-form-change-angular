@@ -1,0 +1,43 @@
+<div class="h-screen flex justify-center items-center">
+  <div class="max-w-md w-full mx-auto">
+    <h2 class="text-3xl text-center mb-6 font-medium">User</h2>
+    <form
+      [formGroup]="userForm"
+      class="grid gap-8"
+      appTrackFormChange
+      [shouldCheck]="!!user"
+      #formChangeDetection="appTrackFormChange"
+    >
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input formControlName="name" type="text" matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input formControlName="email" type="email" matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Website</mat-label>
+        <input formControlName="website" type="text" matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input formControlName="phone" type="tel" matInput />
+      </mat-form-field>
+      <div class="d">
+        <button
+          [disabled]="formChangeDetection?.formHasChanges"
+          mat-raised-button
+          color="primary"
+          (click)="submit()"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <div class="my-8 text-right">
+      <button mat-raised-button color="accent" href="/">Home</button>
+    </div>
+  </div>
+</div>
